@@ -31,11 +31,6 @@ const Card = ({ gameList, currentPage, handlePrevPage, handleNextPage, isLoading
     }
   }
 
-  const handleBuyClick = game => {
-    onIncrementCart(); // Increment the cart count
-    // ...other logic for handling the buy click
-  };
-
   useEffect(() => {
     AOS.init({ duration: 1000 });
     const handleClickOutside = event => {
@@ -70,10 +65,7 @@ const Card = ({ gameList, currentPage, handlePrevPage, handleNextPage, isLoading
               <div className="grid grid-cols-2 gap-3 p-6 ">
                 <div>
                   <h2 className="text-xl text-center md:text-start text-white break-words">{game.name}</h2>
-                  <button
-                    className="bg-[#f90] px-10 w-full text-white py-1 mt-2 rounded-2xl hover:-translate-y-1 transition-all duration-200"
-                    onClick={handleBuyClick}
-                  >
+                  <button className="bg-[#f90] px-10 w-full text-white py-1 mt-2 rounded-2xl hover:-translate-y-1 transition-all duration-200">
                     Buy
                   </button>
                 </div>

@@ -23,21 +23,6 @@ const Home = () => {
     }
   };
 
-  const handleIncrementCart = () => {
-    // Handle cart increment logic here
-    // For example, you could update a cart state or call an API
-    // to update the cart on the server.
-    const existingProductIndex = cart.findIndex(item => item.id === product.id);
-
-    if (existingProductIndex !== -1) {
-      const updatedCart = [...cart];
-      updatedCart[existingProductIndex].quantity += product.quantity;
-      setCart(updatedCart);
-    } else {
-      setCart([...cart, { ...product }]);
-    }
-  };
-
   const handleNextPage = () => {
     setCurrentPage(currentPage + 1);
   };
@@ -72,7 +57,6 @@ const Home = () => {
             handlePrevPage={handlePrevPage}
             handleNextPage={handleNextPage}
             isLoading={isLoading}
-            onIncrementCart={handleIncrementCart}
           />
         </div>
       </main>
