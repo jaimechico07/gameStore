@@ -63,9 +63,9 @@ const Card = ({ gameList, currentPage, handlePrevPage, handleNextPage, isLoading
             >
               <img src={game.background_image} className="w-full h-52 object-cover rounded-t-2xl" alt={game.name} />
               <div className="grid grid-cols-2 gap-3 p-6 ">
-                <div>
+                <div className="flex flex-col">
                   <h2 className="text-xl text-center md:text-start text-white break-words">{game.name}</h2>
-                  <button className="bg-[#f90] px-10 w-full text-white py-1 mt-2 rounded-2xl hover:-translate-y-1 transition-all duration-200">
+                  <button className="bg-[#f90] px-10 md:w-1/2 text-white  py-1 mt-2 rounded-2xl hover:-translate-y-1 transition-all duration-200">
                     Buy
                   </button>
                 </div>
@@ -83,8 +83,8 @@ const Card = ({ gameList, currentPage, handlePrevPage, handleNextPage, isLoading
               </div>
               {hoveredGameId === game.id && (
                 <div
-                  className="absolute -bottom-[50%] inset-x-0 grid grid-cols-1 gap-3 px-6 pb-6  z-10 
-                  bg-[#2c2a29] rounded-b-2xl "
+                  className="md:absolute md:top-0 inset-x-0 grid grid-cols-1 h-52 gap-3 md:p-6 px-6 pb-6 z-[5] 
+                  bg-[#2c2a29]/50 rounded-t-2xl "
                 >
                   <div>
                     <h2 className="text-white">Plataformas:</h2>
@@ -97,7 +97,7 @@ const Card = ({ gameList, currentPage, handlePrevPage, handleNextPage, isLoading
                     <p className="text-gray-400 ">{game.genres.map(genere => genere.name).join(', ')}</p>
                   </div>
                   <button
-                    className="text-white bg-black/50 rounded-full py-1 hover:-translate-y-1 transition-all duration-200"
+                    className="text-white bg-black/70 rounded-full py-1 hover:-translate-y-1 transition-all duration-200"
                     onClick={async () => {
                       try {
                         const details = await fetchGamesDetails(game.id);
@@ -124,7 +124,7 @@ const Card = ({ gameList, currentPage, handlePrevPage, handleNextPage, isLoading
           data-aos="fade-up"
           ref={detailsRef}
           onClick={closeDetails}
-          className="fixed bottom-0 inset-x-0  z-50  grid grid-cols-1 gap-3 px-6 py-6 transition ease-linear duration-300  bg-black/70 "
+          className="fixed bottom-0 inset-x-0  z-50 overflow-y-auto md:h-auto h-[400px] md:overflow-hidden grid grid-cols-1 gap-3 px-6 py-6 transition ease-linear duration-300  bg-black/70 "
         >
           <h2 className="text-white text-5xl pt-2 text-center">{clickedGameDetails.name}</h2>
           <div className="text-white  text-justify">{clickedGameDetails.description_raw}</div>

@@ -6,7 +6,7 @@ const Header = () => {
   const [cartCount, setCartCount] = useState(0);
 
   return (
-    <header className="h-[7vh] lg:h-[10vh] text-gray-400 py-4 px-10 flex items-center justify-between z-40">
+    <header className="h-[7vh] lg:h-[10vh] text-gray-400 py-4 px-10 flex items-center justify-between z-10">
       {/* Movile */}
       <button onClick={() => setShowMenu(!showMenu)} className="lg:hidden text-2xl">
         <RiMenu2Line />
